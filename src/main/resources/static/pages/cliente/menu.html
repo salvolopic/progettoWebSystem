@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Cliente - Hotel Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="app-page">
+
+    <header class="app-header">
+        <div class="app-brand">
+            <span class="app-brand-icon">🏨</span>
+            Hotel Management
+        </div>
+        <div class="app-header-right">
+            <div id="user-info">Caricamento...</div>
+            <button class="btn-logout" onclick="logout()">Esci</button>
+        </div>
+    </header>
+
+    <div class="page-content page-content--lg">
+        <div class="welcome-section">
+            <h1>Benvenuto</h1>
+            <p>Cosa vuoi fare oggi?</p>
+        </div>
+
+        <div class="menu-grid">
+            <div class="menu-card" onclick="window.location.href='/pages/cliente/ricerca.html'">
+                <span class="menu-icon">📅</span>
+                <h2>Nuova Prenotazione</h2>
+                <p>Cerca e prenota una camera nell'hotel nelle date che preferisci</p>
+                <span class="menu-card-arrow">Inizia →</span>
+            </div>
+
+            <div class="menu-card" onclick="window.location.href='/pages/cliente/mie-prenotazioni.html'">
+                <span class="menu-icon">📋</span>
+                <h2>Le Mie Prenotazioni</h2>
+                <p>Visualizza e gestisci le tue prenotazioni attive e passate</p>
+                <span class="menu-card-arrow">Visualizza →</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/cliente/menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrazione - Hotel Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-wrapper auth-wrapper--reg">
+
+        <div class="auth-left">
+            <div class="brand-logo">
+                <div class="brand-icon">🏨</div>
+                <div class="brand-text">
+                    Hotel Management
+                    <span>sistema gestionale</span>
+                </div>
+            </div>
+
+            <div class="brand-tagline">
+                <h2>Inizia la tua esperienza</h2>
+                <p>Crea il tuo account e accedi a tutte le funzionalità del sistema.</p>
+            </div>
+
+            <div class="brand-steps">
+                <div class="brand-step">
+                    <div class="brand-step-dot">1</div>
+                    Compila i tuoi dati
+                </div>
+                <div class="brand-step">
+                    <div class="brand-step-dot">2</div>
+                    Crea l'account
+                </div>
+                <div class="brand-step">
+                    <div class="brand-step-dot">3</div>
+                    Accedi e inizia
+                </div>
+            </div>
+
+            <div class="brand-footer">© 2026 Hotel Management System</div>
+        </div>
+
+        <div class="auth-right">
+            <div class="auth-form-title">
+                <h1>Crea account</h1>
+                <p>Compila i campi per registrarti al sistema</p>
+            </div>
+
+            <form id="registrazione-form">
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" required placeholder="Mario">
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome">Cognome</label>
+                        <input type="text" id="cognome" required placeholder="Rossi">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required placeholder="mario.rossi@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required minlength="3" placeholder="Il tuo username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required minlength="8" placeholder="Minimo 8 caratteri">
+                </div>
+
+                <button type="submit" class="btn">Registrati</button>
+            </form>
+
+            <hr class="auth-divider">
+
+            <p class="auth-footer-link">
+                Hai già un account? <a href="/pages/login.html">Accedi</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script src="/js/registrazione.js"></script>
+</body>
+</html>

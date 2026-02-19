@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Gestore - Hotel Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="app-page">
+
+    <header class="app-header">
+        <div class="app-brand">
+            <span>🏨</span> Hotel Management
+        </div>
+        <div class="app-header-right">
+            <span class="app-badge">Gestore</span>
+            <button class="btn-logout" onclick="fetch('/api/auth/logout',{method:'POST'}).finally(()=>{localStorage.clear();window.location.href='/pages/login.html';})">Esci</button>
+        </div>
+    </header>
+
+    <div class="page-content">
+
+        <div class="page-header">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Panoramica dello stato attuale delle camere</p>
+            </div>
+            <a href="/pages/gestore/report.html" class="btn-primary">📄 Genera Report</a>
+        </div>
+
+        <p class="section-title">Totale — Tutte le strutture</p>
+        <div class="dashboard-camere">
+            <div class="stato-card">
+                <h3>Disponibili</h3>
+                <span id="num-disponibili">0</span>
+            </div>
+            <div class="stato-card">
+                <h3>Occupate</h3>
+                <span id="num-occupate">0</span>
+            </div>
+            <div class="stato-card">
+                <h3>Da Pulire</h3>
+                <span id="num-da-pulire">0</span>
+            </div>
+        </div>
+
+        <p class="section-title section-title--mt">Panoramica per struttura</p>
+        <div class="strutture-grid" id="panoramica-strutture">
+            <p class="loading-text">Caricamento...</p>
+        </div>
+
+    </div>
+
+    <script src="/js/gestore/dashboard.js"></script>
+</body>
+</html>

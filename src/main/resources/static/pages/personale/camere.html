@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestione Camere - Personale</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="app-page">
+
+    <header class="app-header">
+        <div class="app-brand">
+            <span>🏨</span> Hotel Management
+        </div>
+        <div class="app-header-right">
+            <span class="app-badge">Personale</span>
+            <button class="btn-logout" onclick="fetch('/api/auth/logout',{method:'POST'}).finally(()=>{localStorage.clear();window.location.href='/pages/login.html';})">Esci</button>
+        </div>
+    </header>
+
+    <div class="page-content">
+
+        <div class="info-box">
+            <p><strong>Struttura:</strong> <span id="nome-struttura">Caricamento...</span></p>
+        </div>
+
+        <div class="tab-navigation">
+            <button class="tab-button active" onclick="mostraTab('occupate', event)">Camere Occupate</button>
+            <button class="tab-button" onclick="mostraTab('libere', event)">Camere Libere</button>
+            <button class="tab-button" onclick="mostraTab('da-pulire', event)">Da Pulire</button>
+        </div>
+
+        <div id="tab-occupate" class="tab-content active">
+            <h2>Camere Occupate</h2>
+            <div id="lista-occupate"></div>
+        </div>
+
+        <div id="tab-libere" class="tab-content">
+            <h2>Camere Libere</h2>
+            <div id="lista-libere"></div>
+        </div>
+
+        <div id="tab-da-pulire" class="tab-content">
+            <h2>Camere da Pulire</h2>
+            <div id="lista-da-pulire"></div>
+        </div>
+
+    </div>
+
+    <!-- Modal Note Cliente -->
+    <div id="note-modal" class="modal-overlay" style="display:none;" onclick="if(event.target===this) chiudiModal()">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>📝 Note del Cliente</h3>
+                <button class="modal-close" onclick="chiudiModal()">✕</button>
+            </div>
+            <div class="modal-body" id="note-modal-body"></div>
+        </div>
+    </div>
+
+    <script src="/js/personale/camere.js"></script>
+</body>
+</html>

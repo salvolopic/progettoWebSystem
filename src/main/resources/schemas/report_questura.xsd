@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!-- Root element -->
+    <xs:element name="reportQuestura">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dataReport" type="xs:date"/>
+                <xs:element name="prenotazioni">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="prenotazione" type="PrenotazioneType" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="totalePrenotazioni" type="xs:int"/>
+                <xs:element name="totaleOspiti" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Prenotazione Type -->
+    <xs:complexType name="PrenotazioneType">
+        <xs:sequence>
+            <xs:element name="codicePrenotazione" type="xs:string"/>
+            <xs:element name="struttura" type="StrutturaType"/>
+            <xs:element name="camera" type="xs:string"/>
+            <xs:element name="dataCheckIn" type="xs:date"/>
+            <xs:element name="dataCheckOut" type="xs:date"/>
+            <xs:element name="ospiti">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ospite" type="OspiteType" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Struttura Type -->
+    <xs:complexType name="StrutturaType">
+        <xs:sequence>
+            <xs:element name="nome" type="xs:string"/>
+            <xs:element name="indirizzo" type="xs:string"/>
+            <xs:element name="citta" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Ospite Type -->
+    <xs:complexType name="OspiteType">
+        <xs:sequence>
+            <xs:element name="nome" type="xs:string"/>
+            <xs:element name="cognome" type="xs:string"/>
+            <xs:element name="dataNascita" type="xs:date"/>
+            <xs:element name="luogoNascita" type="xs:string"/>
+            <xs:element name="cittadinanza" type="xs:string"/>
+            <xs:element name="capogruppo" type="xs:boolean"/>
+            <xs:element name="documento" type="DocumentoType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Documento Type (obbligatorio per capogruppo) -->
+    <xs:complexType name="DocumentoType">
+        <xs:sequence>
+            <xs:element name="tipo" type="TipoDocumentoEnum"/>
+            <xs:element name="numero" type="xs:string"/>
+            <xs:element name="enteRilascio" type="xs:string" minOccurs="0"/>
+            <xs:element name="dataRilascio" type="xs:date" minOccurs="0"/>
+            <xs:element name="dataScadenza" type="xs:date" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Enum Tipo Documento -->
+    <xs:simpleType name="TipoDocumentoEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CARTA_IDENTITA"/>
+            <xs:enumeration value="PASSAPORTO"/>
+            <xs:enumeration value="PATENTE"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

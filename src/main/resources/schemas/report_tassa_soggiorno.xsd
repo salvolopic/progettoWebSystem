@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+    <!-- Root element -->
+    <xs:element name="reportTassaSoggiorno">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="dataReport" type="xs:date"/>
+                <xs:element name="gruppi">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="gruppo" type="GruppoType" minOccurs="0" maxOccurs="unbounded"/>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="riepilogo" type="RiepilogoType"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Gruppo Type -->
+    <xs:complexType name="GruppoType">
+        <xs:sequence>
+            <xs:element name="capogruppo" type="CapogruppoType"/>
+            <xs:element name="codicePrenotazione" type="xs:string"/>
+            <xs:element name="numeroOspiti" type="xs:int"/>
+            <xs:element name="numeroEsenti" type="xs:int"/>
+            <xs:element name="esenzioni" type="EsenzioniType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Capogruppo Type (solo nome e cognome per privacy) -->
+    <xs:complexType name="CapogruppoType">
+        <xs:sequence>
+            <xs:element name="nome" type="xs:string"/>
+            <xs:element name="cognome" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Esenzioni Type -->
+    <xs:complexType name="EsenzioniType">
+        <xs:sequence>
+            <xs:element name="esenzione" type="EsenzioneType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Esenzione Type -->
+    <xs:complexType name="EsenzioneType">
+        <xs:sequence>
+            <xs:element name="ospite" type="xs:string"/>
+            <xs:element name="tipo" type="TipoEsenzioneEnum"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Riepilogo Type -->
+    <xs:complexType name="RiepilogoType">
+        <xs:sequence>
+            <xs:element name="totaleOspiti" type="xs:int"/>
+            <xs:element name="totaleEsentiMinori" type="xs:int"/>
+            <xs:element name="totaleEsentiAltro" type="xs:int"/>
+            <xs:element name="totaleImponibili" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Enum Tipo Esenzione -->
+    <xs:simpleType name="TipoEsenzioneEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="MINORE"/>
+            <xs:enumeration value="DISABILE"/>
+            <xs:enumeration value="RESIDENTE"/>
+            <xs:enumeration value="ALTRO"/>
+            <xs:enumeration value="NON_SPECIFICATO"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

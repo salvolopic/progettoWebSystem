@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prenotazione - Hotel Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Nuova Prenotazione</h1>
+
+        <div id="info-camera">
+            <p>Camera: <span id="camera-numero"></span></p>
+            <p>Tipo: <span id="camera-tipo"></span></p>
+            <p>Prezzo: <span id="camera-prezzo"></span></p>
+        </div>
+
+        <form id="prenotazione-form">
+            <div class="form-group">
+                <label for="data-checkin">Data Check-in</label>
+                <input type="date" id="data-checkin" required>
+            </div>
+
+            <div class="form-group">
+                <label for="data-checkout">Data Check-out</label>
+                <input type="date" id="data-checkout" required>
+            </div>
+
+            <div class="form-group">
+                <label for="numero-ospiti">Numero Ospiti</label>
+                <input type="number" id="numero-ospiti" min="1" required>
+            </div>
+
+            <button type="submit" class="btn">Conferma Prenotazione</button>
+        </form>
+    </div>
+
+    <script src="/js/cliente/prenotazione.js"></script>
+</body>
+</html>

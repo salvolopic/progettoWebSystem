@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuova Prenotazione - Hotel Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="app-page">
+
+    <header class="app-header">
+        <div class="app-brand">
+            <span>🏨</span> Hotel Management
+        </div>
+        <a class="app-back" href="/pages/cliente/menu.html">← Menu</a>
+    </header>
+
+    <div class="step-progress">
+        <div class="step-progress-inner">
+            <div class="step-item">
+                <div class="step-dot" data-step="1">1</div>
+                <span class="step-label" data-step="1">Struttura</span>
+            </div>
+            <div class="step-line" data-after="1"></div>
+            <div class="step-item">
+                <div class="step-dot" data-step="2">2</div>
+                <span class="step-label" data-step="2">Date</span>
+            </div>
+            <div class="step-line" data-after="2"></div>
+            <div class="step-item">
+                <div class="step-dot" data-step="3">3</div>
+                <span class="step-label" data-step="3">Camera</span>
+            </div>
+            <div class="step-line" data-after="3"></div>
+            <div class="step-item">
+                <div class="step-dot" data-step="4">4</div>
+                <span class="step-label" data-step="4">Servizi</span>
+            </div>
+            <div class="step-line" data-after="4"></div>
+            <div class="step-item">
+                <div class="step-dot" data-step="5">5</div>
+                <span class="step-label" data-step="5">Riepilogo</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-content page-content--md">
+
+        <!-- Step 1: Selezione Struttura -->
+        <div class="step active" id="step-1">
+            <div class="step-panel">
+                <div class="step-panel-header">
+                    <h2>Seleziona la Struttura</h2>
+                </div>
+                <div class="step-panel-body">
+                    <div id="lista-strutture"></div>
+                </div>
+                <div class="step-panel-footer">
+                    <button class="btn-secondary-outline" onclick="window.location.href='/pages/cliente/menu.html'">Annulla</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Date e Ospiti -->
+        <div class="step" id="step-2">
+            <div class="step-panel">
+                <div class="step-panel-header">
+                    <h2>Date e Numero Ospiti</h2>
+                </div>
+                <div class="step-panel-body">
+                    <form id="form-date">
+                        <div class="form-group">
+                            <label for="data-checkin">Data Check-in</label>
+                            <input type="date" id="data-checkin" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="data-checkout">Data Check-out</label>
+                            <input type="date" id="data-checkout" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="numero-ospiti">Numero Ospiti</label>
+                            <input type="number" id="numero-ospiti" min="1" max="10" required>
+                        </div>
+                        <div class="btn-group-form">
+                            <button type="button" class="btn-secondary-outline" onclick="tornaStep(1)">Indietro</button>
+                            <button type="submit" class="btn">Cerca camere disponibili</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Selezione Camera -->
+        <div class="step" id="step-3">
+            <div class="step-panel">
+                <div class="step-panel-header">
+                    <h2>Seleziona una Camera</h2>
+                </div>
+                <div class="step-panel-body">
+                    <div id="lista-camere"></div>
+                </div>
+                <div class="step-panel-footer">
+                    <button class="btn-secondary-outline" onclick="tornaStep(2)">Indietro</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Servizi Aggiuntivi -->
+        <div class="step" id="step-4">
+            <div class="step-panel">
+                <div class="step-panel-header">
+                    <h2>Servizi Aggiuntivi <span class="step-optional">(opzionali)</span></h2>
+                </div>
+                <div class="step-panel-body">
+                    <div id="lista-servizi"></div>
+                </div>
+                <div class="step-panel-footer">
+                    <button class="btn-secondary-outline" onclick="tornaStep(3)">Indietro</button>
+                    <button class="btn" onclick="vaiARiepilogo()">Avanti</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: Riepilogo -->
+        <div class="step" id="step-5">
+            <div class="step-panel">
+                <div class="step-panel-header">
+                    <h2>Riepilogo Prenotazione</h2>
+                </div>
+                <div class="step-panel-body">
+                    <div class="summary-section">
+                        <h3>Struttura</h3>
+                        <p id="summary-struttura"></p>
+                    </div>
+                    <div class="summary-section">
+                        <h3>Camera</h3>
+                        <p id="summary-camera"></p>
+                    </div>
+                    <div class="summary-section">
+                        <h3>Date e Ospiti</h3>
+                        <p id="summary-date"></p>
+                    </div>
+                    <div class="summary-section">
+                        <h3>Servizi Aggiuntivi</h3>
+                        <div id="summary-servizi"></div>
+                    </div>
+                    <div class="summary-section">
+                        <h3>Costo Totale</h3>
+                        <h2 id="summary-costo"></h2>
+                    </div>
+                </div>
+                <div class="step-panel-footer">
+                    <button class="btn-secondary-outline" onclick="tornaStep(4)">Indietro</button>
+                    <button class="btn" onclick="confermaPrenotazione()">Conferma Prenotazione</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/js/cliente/ricerca.js"></script>
+</body>
+</html>

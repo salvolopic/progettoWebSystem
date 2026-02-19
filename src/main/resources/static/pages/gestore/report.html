@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genera Report - Hotel Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="app-page">
+
+    <header class="app-header">
+        <div class="app-brand">
+            <span>🏨</span> Hotel Management
+        </div>
+        <a class="app-back" href="/pages/gestore/dashboard.html">← Dashboard</a>
+    </header>
+
+    <div class="page-content page-content--sm">
+
+        <h1 class="page-title">Genera Report</h1>
+
+        <!-- Report Questura -->
+        <div class="report-section">
+            <div class="report-section-header">
+                <div class="report-section-icon">🏛️</div>
+                <div>
+                    <h2>Report per la Questura</h2>
+                    <p>Report giornaliero degli ospiti presenti in formato XML</p>
+                </div>
+            </div>
+            <div class="report-section-body">
+                <form id="form-questura">
+                    <div class="form-group">
+                        <label for="data-questura">Data Report</label>
+                        <input type="date" id="data-questura" name="data" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="struttura-questura">Struttura (opzionale)</label>
+                        <select id="struttura-questura" name="strutturaId">
+                            <option value="">Tutte le strutture</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">⬇ Scarica XML Questura</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Report Tassa Soggiorno -->
+        <div class="report-section">
+            <div class="report-section-header">
+                <div class="report-section-icon">💶</div>
+                <div>
+                    <h2>Report Tassa di Soggiorno</h2>
+                    <p>Riepilogo delle tasse di soggiorno con esenzioni in formato XML</p>
+                </div>
+            </div>
+            <div class="report-section-body">
+                <form id="form-tassa">
+                    <div class="form-group">
+                        <label for="data-tassa">Data Report</label>
+                        <input type="date" id="data-tassa" name="data" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="struttura-tassa">Struttura (opzionale)</label>
+                        <select id="struttura-tassa" name="strutturaId">
+                            <option value="">Tutte le strutture</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-primary">⬇ Scarica XML Tassa Soggiorno</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/js/gestore/report.js"></script>
+</body>
+</html>

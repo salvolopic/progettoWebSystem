@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Hotel Management</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="auth-body">
+    <div class="auth-wrapper">
+
+        <div class="auth-left">
+            <div class="brand-logo">
+                <div class="brand-icon">🏨</div>
+                <div class="brand-text">
+                    Hotel Management
+                    <span>sistema gestionale</span>
+                </div>
+            </div>
+
+            <div class="brand-tagline">
+                <h2>Gestisci il tuo hotel con efficienza</h2>
+                <p>Prenotazioni, camere e ospiti — tutto sotto controllo, in un unico sistema.</p>
+            </div>
+
+            <div class="brand-footer">© 2026 Hotel Management System</div>
+        </div>
+
+        <div class="auth-right">
+            <div class="auth-form-title">
+                <h1>Accedi</h1>
+                <p>Inserisci le tue credenziali per continuare</p>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" required autocomplete="username" placeholder="Il tuo username">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required autocomplete="current-password" placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="btn">Accedi</button>
+            </form>
+
+            <hr class="auth-divider">
+
+            <p class="auth-footer-link">
+                Non hai un account? <a href="/pages/registrazione.html">Registrati</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script src="/js/login.js"></script>
+</body>
+</html>

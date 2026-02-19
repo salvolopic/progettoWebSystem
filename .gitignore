@@ -1,0 +1,7 @@
+target/
+.idea/
+*.iml
+.DS_Store
+.claude/
+.github/
+docker-compose.yml

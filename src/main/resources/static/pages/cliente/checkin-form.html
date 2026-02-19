@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conferma Dati Check-in</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Conferma Dati per Check-in</h1>
+
+        <div class="info-box">
+            <h3>Dettagli Prenotazione</h3>
+            <div id="dettagli-prenotazione"></div>
+        </div>
+
+        <form id="form-checkin">
+            <div id="ospiti-container"></div>
+
+            <div class="form-actions">
+                <button type="button" onclick="window.history.back()" class="btn-secondary">Annulla</button>
+                <button type="submit" class="btn-primary">Conferma Check-in</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/js/cliente/checkin-form.js"></script>
+</body>
+</html>
