@@ -2284,7 +2284,7 @@ body.app-page {
     flex-shrink: 0;
     padding: 44px 36px;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
     gap: 36px;
     position: relative;
     overflow: hidden;
