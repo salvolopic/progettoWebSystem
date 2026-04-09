@@ -2284,8 +2284,8 @@ body.app-page {
     flex-shrink: 0;
     padding: 44px 36px;
     align-items: flex-start;
-    justify-content: center;
-    gap: 36px;
+    justify-content: flex-start;
+    gap: 0;
     position: relative;
     overflow: hidden;
 }
@@ -2358,6 +2358,8 @@ body.app-page {
 .brand-tagline {
     position: relative;
     z-index: 1;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 .brand-tagline h2 {
